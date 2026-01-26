@@ -1,0 +1,31 @@
+package com.utilities;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class BrowserUtility  {
+    private final WebDriver driver;
+
+    public BrowserUtility(WebDriver driver){
+        this.driver = driver;
+    }
+
+    public void goToWebsite(String url){
+        driver.get(url);
+    }
+
+    public void maximizeWindow() {
+        driver.manage().window().maximize();
+    }
+
+    public void clickOnElement(By locator) {
+        WebElement element = driver.findElement(locator);
+        element.click();
+    }
+
+    public void inputText(By locator, String text) {
+        WebElement element = driver.findElement(locator);
+        element.sendKeys(text);
+    }
+}
